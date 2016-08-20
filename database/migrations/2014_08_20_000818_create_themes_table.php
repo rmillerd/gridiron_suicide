@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSeasonsTable extends Migration
+class CreateThemesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,10 @@ class CreateSeasonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('seasons', function(Blueprint $table){
+        Schema::create('themes', function(Blueprint $table){
            $table->increments('id');
            $table->string('name');
-           $table->boolean('open');
-           $table->integer('idUserOwner')->unsigned();
-           $table->foreign('idUserOwner')->references('id')->on('users');
-           $table->string('modifiedBy');
+           $table->text('cdnURL');
            $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateSeasonsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('seasons');
+        Schema::drop('themes');
     }
 }

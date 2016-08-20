@@ -11,22 +11,6 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('HomeController@index');
-});
-
-Route::get('/home', function() {
-    return view('bootstrap-test');
-});
-
-Route::get('/login', function() {
-    return view('login');
-});
-
-Route::post('/login', function() {
-    return view('bootstrap-test');
-});*/
-
 Route::auth();
 Route::get('/', 'HomeController@welcome');
 Route::get('/home', 'HomeController@index');

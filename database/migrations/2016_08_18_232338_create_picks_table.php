@@ -20,6 +20,8 @@ class CreatePicksTable extends Migration
             $table->foreign('idUser')->references('id')->on('users');
             $table->integer('idTeam')->unsigned();
             $table->foreign('idTeam')->references('id')->on('teams');
+            $table->string('modifiedBy');
+            $table->timestamps();
         });
     }
 

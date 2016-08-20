@@ -14,9 +14,10 @@ class CreateTeamsTable extends Migration
     {
         Schema::create('teams', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('idSeasons')->unsigned();
-            $table->foreign('idSeasons')->references('id')->on('seasons');
-            $table->string('Name');
+            $table->integer('idSeason')->unsigned();
+            $table->foreign('idSeason')->references('id')->on('seasons');
+            $table->string('name');
+            $table->text('iconURL');
         });
     }
 
