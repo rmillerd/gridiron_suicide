@@ -17,6 +17,12 @@
                     <input type="text" name="name" id="league-name" class="form-control">
                 </div>
             </div>
+            <div class="form-group">
+                <label for="league-URL" class="col-sm-3 control-label">URL</label>
+                <div class="col-sm-6">
+                    <input type="text" name="name" id="league-URL" class="form-control">
+                </div>
+            </div>
 
             <!-- Add Task Button -->
             <div class="form-group">
@@ -27,10 +33,9 @@
                 </div>
             </div>
         </form>
-    </div>
 
    <!-- Current Leagues -->
-    @if (count($leagues) > 0)
+@if (count($leagues) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
                 Current Leagues
@@ -42,20 +47,21 @@
                     <!-- Table Headings -->
                     <thead>
                         <th>League</th>
-                        <th>&nbsp;</th>
+                        <th>Actions&nbsp;</th>
                     </thead>
 
                     <!-- Table Body -->
                     <tbody>
                         @foreach ($leagues as $league)
-                            <tr>
+                        <tr>
                                 <!-- Season Name -->
                                 <td class="table-text">
                                     <div>{{ $league->name }}</div>
                                 </td>
-
                                 <td>
-                                    <!-- TODO: Delete Button -->
+                                     &nbsp;<!-- TODO: Delete Button -->
+                                    <button type="button" class="btn btn-sm btn-info">Edit</button>
+                                    <button type="button" class="btn btn-sm btn-danger">Delete</button>
                                 </td>
                             </tr>
                         @endforeach
@@ -64,4 +70,5 @@
             </div>
         </div>
     @endif
+</div>
 @endsection

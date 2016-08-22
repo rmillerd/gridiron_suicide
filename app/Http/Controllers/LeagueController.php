@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Repositories\LeagueRepository;
+use App\League;
 
 class LeagueController extends Controller
 {
@@ -20,7 +21,9 @@ class LeagueController extends Controller
      */
     public function index(Request $request)
     {
-        return view('leagues.index');
+        return view('leagues.index', [
+            'leagues' => League::All(),
+        ]);
     }
     
     /*
@@ -39,5 +42,9 @@ class LeagueController extends Controller
             'URL' => $request->URL,
             //'modifiedBy' => Auth::getUser()
         ]);
+    }
+    
+    public function edit(Request $request){
+        
     }
 }

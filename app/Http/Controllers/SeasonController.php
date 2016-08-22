@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Repositories\SeasonRepository;
+use App\League;
 
 class SeasonController extends Controller
 {
@@ -21,6 +22,7 @@ class SeasonController extends Controller
     
     public function index(Request $request)
     {
+        $leagueId = League::where('name', $league);
         return view('seasons.index', [
             'seasons' => $this->seasons->forLeague($request->league()),
         ]);

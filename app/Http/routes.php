@@ -18,11 +18,15 @@ Route::get('/users', 'HomeController@index');
 
 # Leagues
 Route::get('/leagues', 'LeagueController@index');
-Route::post('/league', 'LeagueController@store');
-Route::delete('/league/{league}', 'LeagueController@destroy');
+Route::post('/league/new', 'LeagueController@store');
+Route::delete('/league/delete/{league}', 'LeagueController@destroy');
+//Route::edit('/league/edit/{league}', 'LeagueController@edit');
 
 # Seasons
-Route::get('/seasons', 'SeasonController@index');
+Route::get('/league/{league}/seasons', ['uses' => 'SeasonController@index', function ($league){
+ return 'League '. $league;   
+    
+}]);
 Route::post('/season', 'SeasonController@store');
 Route::delete('/season/{season}', 'SeasonController@destroy');
 

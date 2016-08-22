@@ -13,5 +13,14 @@ class League extends Model
      */
     protected $fillable = ['name'];
 
-
+    public function seasons()
+    {
+        return $this->hasMany(Season::class);
+    }
+    
+    public function teams()
+    {
+        return $this->hasMany(Teams::class);
+    }
+    
 }
