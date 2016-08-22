@@ -15,9 +15,20 @@ Route::auth();
 Route::get('/', 'HomeController@welcome');
 Route::get('/home', 'HomeController@index');
 Route::get('/users', 'HomeController@index');
-Route::get('/seasons', 'HomeController@index');
+
+# Leagues
+Route::get('/leagues', 'LeagueController@index');
+Route::post('/league', 'LeagueController@store');
+Route::delete('/league/{league}', 'LeagueController@destroy');
+
+# Seasons
+Route::get('/seasons', 'SeasonController@index');
+Route::post('/season', 'SeasonController@store');
+Route::delete('/season/{season}', 'SeasonController@destroy');
+
+/*
 Route::get('/season/teams', 'HomeController@index');
 Route::get('/season/users', 'HomeController@index');
 Route::get('/seasons/user/pick', 'HomeController@index');
-
+*/
 

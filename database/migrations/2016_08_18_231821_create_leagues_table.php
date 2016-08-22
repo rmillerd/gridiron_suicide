@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWeeksTable extends Migration
+class CreateLeaguesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,11 @@ class CreateWeeksTable extends Migration
      */
     public function up()
     {
-        Schema::create('weeks', function(Blueprint $table){
+        Schema::create('leagues', function(Blueprint $table){
            $table->increments('id');
            $table->string('name');
-           $table->integer('idSeason')->unsigned();
-           $table->foreign('idSeason')->references('id')->on('seasons');
-           $table->dateTime('startDate');
-           $table->dateTime('endDate');
+           $table->string('URL');
+           $table->string('modifiedBy');
            $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateWeeksTable extends Migration
      */
     public function down()
     {
-        Schema::drop('weeks');
+        Schema::drop('leagues');
     }
 }

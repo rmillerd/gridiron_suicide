@@ -14,7 +14,9 @@ class ThemeSeeder extends Seeder
         DB::table('themes')->insert([
             'id' => 1,
             'name' => 'Default',
-            'cdnURL' => '<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-RpX8okQqCyUNG7PlOYNybyJXYTtGQH+7rIKiVvg1DLg6jahLEk47VvpUyS+E2/uJ" crossorigin="anonymous">'
+            'hrefURL' => 'https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css',
+            'integrity' => 'sha384-RpX8okQqCyUNG7PlOYNybyJXYTtGQH+7rIKiVvg1DLg6jahLEk47VvpUyS+E2/uJ',
+            'crossorigin' => 'anonymous',
         ]);
     }
 }

@@ -16,8 +16,10 @@ class CreateSeasonsTable extends Migration
            $table->increments('id');
            $table->string('name');
            $table->boolean('open');
-           $table->integer('idUserOwner')->unsigned();
-           $table->foreign('idUserOwner')->references('id')->on('users');
+           $table->integer('idLeague')->unsigned();
+           $table->foreign('idLeague')->references('id')->on('leagues');
+           $table->date('startDate');
+           $table->date('endDate');
            $table->string('modifiedBy');
            $table->timestamps();
         });

@@ -22,6 +22,7 @@ class CreateMatchupsTable extends Migration
            $table->foreign('idTeamHome')->references('id')->on('teams');
            $table->integer('idTeamVisitor')->unsigned();
            $table->foreign('idTeamVisitor')->references('id')->on('teams');
+           $table->datetime('gameTime');
            $table->string('modifiedBy');
            $table->timestamps();
         });

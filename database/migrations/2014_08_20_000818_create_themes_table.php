@@ -15,7 +15,9 @@ class CreateThemesTable extends Migration
         Schema::create('themes', function(Blueprint $table){
            $table->increments('id');
            $table->string('name');
-           $table->text('cdnURL');
+           $table->text('hrefURL');
+           $table->string('integrity');
+           $table->string('crossorigin');
            $table->timestamps();
         });
     }
