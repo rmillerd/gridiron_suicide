@@ -20,7 +20,11 @@ class League extends Model
     
     public function teams()
     {
-        return $this->hasMany(Teams::class);
+        return $this->hasMany(Team::class);
     }
     
+    public static function byName($name)
+    {
+        return League::where('name' , $name)->first();
+    }
 }

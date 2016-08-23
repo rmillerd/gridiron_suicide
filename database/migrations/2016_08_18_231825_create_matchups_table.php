@@ -14,14 +14,14 @@ class CreateMatchupsTable extends Migration
     {
         Schema::create('matchups', function(Blueprint $table){
            $table->increments('id');
-           $table->integer('idSeason')->unsigned();
-           $table->foreign('idSeason')->references('id')->on('seasons');
-           $table->integer('idWeek')->unsigned();
-           $table->foreign('idWeek')->references('id')->on('weeks');
-           $table->integer('idTeamHome')->unsigned();
-           $table->foreign('idTeamHome')->references('id')->on('teams');
-           $table->integer('idTeamVisitor')->unsigned();
-           $table->foreign('idTeamVisitor')->references('id')->on('teams');
+           $table->integer('season_id')->unsigned();
+           $table->foreign('season_id')->references('id')->on('seasons');
+           $table->integer('week_id')->unsigned();
+           $table->foreign('week_id')->references('id')->on('weeks');
+           $table->integer('hometeam_id')->unsigned();
+           $table->foreign('hometeam_id')->references('id')->on('teams');
+           $table->integer('visitteam_id')->unsigned();
+           $table->foreign('visitteam_id')->references('id')->on('teams');
            $table->datetime('gameTime');
            $table->string('modifiedBy');
            $table->timestamps();

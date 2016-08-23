@@ -9,12 +9,12 @@ class SeasonRepository
     /**
      * Get all of the Seasons for a given League.
      *
-     * @param  User  $user
+     * @param  League $league
      * @return Collection
      */
     public function forLeague(League $league)
     {
         return $league->seasons()
-                    ->orderBy('created_at', 'asc')
+                    ->orderBy('startDate', 'asc')
                     ->get();
     }}

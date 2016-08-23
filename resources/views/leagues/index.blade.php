@@ -5,7 +5,7 @@
         <!-- Display Validation Errors -->
         @include('common.errors')
 
-        <!-- New Task Form -->
+        <!-- New League Form -->
         <form action="{{ url('league') }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 

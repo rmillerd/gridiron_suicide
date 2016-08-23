@@ -14,12 +14,12 @@ class CreatePicksTable extends Migration
     {
         Schema::create('picks', function(Blueprint $table){
             $table->increments('id');
-            $table->integer('idSeasons')->unsigned();
-            $table->foreign('idSeasons')->references('id')->on('seasons');
-            $table->integer('idUser')->unsigned();
-            $table->foreign('idUser')->references('id')->on('users');
-            $table->integer('idTeam')->unsigned();
-            $table->foreign('idTeam')->references('id')->on('teams');
+            $table->integer('season_id')->unsigned();
+            $table->foreign('season_id')->references('id')->on('seasons');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('team_id')->unsigned();
+            $table->foreign('team_id')->references('id')->on('teams');
             $table->string('modifiedBy');
             $table->timestamps();
         });

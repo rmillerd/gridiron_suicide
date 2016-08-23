@@ -15,8 +15,8 @@ class CreateWeeksTable extends Migration
         Schema::create('weeks', function(Blueprint $table){
            $table->increments('id');
            $table->string('name');
-           $table->integer('idSeason')->unsigned();
-           $table->foreign('idSeason')->references('id')->on('seasons');
+           $table->integer('season_id')->unsigned();
+           $table->foreign('season_id')->references('id')->on('seasons');
            $table->dateTime('startDate');
            $table->dateTime('endDate');
            $table->timestamps();

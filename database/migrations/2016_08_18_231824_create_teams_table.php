@@ -16,8 +16,8 @@ class CreateTeamsTable extends Migration
             $table->increments('id');
             //$table->integer('idSeason')->unsigned();
             //$table->foreign('idSeason')->references('id')->on('seasons');
-            $table->integer('idLeague')->unsigned();
-            $table->foreign('idLeague')->references('id')->on('leagues');
+            $table->integer('league_id')->unsigned();
+            $table->foreign('league_id')->references('id')->on('leagues');
             $table->string('name');
             $table->text('iconURL');
             $table->text('teamURL');

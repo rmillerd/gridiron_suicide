@@ -47,4 +47,12 @@ class LeagueController extends Controller
     public function edit(Request $request){
         
     }
+    
+    public function details(Request $request){
+        return view('leagues.details', [
+            'league' => League::byName($request->league),
+            'seasons' => League::byName($request->league)->seasons,
+            'teams' => League::byName($request->league)->teams,
+        ]);
+    }
 }

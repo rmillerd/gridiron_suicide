@@ -29,7 +29,7 @@
         </form>
     </div>
 
-   <!-- Current Tasks -->
+   <!-- Current Seasons -->
     @if (count($seasons) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -64,4 +64,5 @@
             </div>
         </div>
     @endif
+
 @endsection

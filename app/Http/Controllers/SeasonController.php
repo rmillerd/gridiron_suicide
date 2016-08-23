@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Repositories\SeasonRepository;
 use App\League;
+use App\Season;
 
 class SeasonController extends Controller
 {
@@ -22,9 +23,8 @@ class SeasonController extends Controller
     
     public function index(Request $request)
     {
-        $leagueId = League::where('name', $league);
         return view('seasons.index', [
-            'seasons' => $this->seasons->forLeague($request->league()),
+            'seasons' => $this->seasons->forLeague(League::byName($request->league)),
         ]);
     }
     
@@ -43,5 +43,9 @@ class SeasonController extends Controller
             //'modifiedBy' => Auth::User();
         ]);
         return redirect('/seasons');
+    }
+
+    public function details(Request $request){
+        return Season::find($request->season);
     }
 }

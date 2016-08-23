@@ -13,10 +13,10 @@ class MatchupSeeder extends Seeder
     public function run()
     {
         DB::table('matchups')->insert([
-            'idSeason' => '1',
-            'idWeek' => 1,
-            'idTeamHome' => 10,
-            'idTeamVisitor' => 5,
+            'season_id' => '1',
+            'week_id' => 1,
+            'hometeam_id' => 10,
+            'visitteam_id' => 5,
             'gameTime' => Carbon::create(2017,1,1,17,30,0,'PST'),
         ]);
     }

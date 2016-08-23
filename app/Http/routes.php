@@ -21,12 +21,11 @@ Route::get('/leagues', 'LeagueController@index');
 Route::post('/league/new', 'LeagueController@store');
 Route::delete('/league/delete/{league}', 'LeagueController@destroy');
 //Route::edit('/league/edit/{league}', 'LeagueController@edit');
+Route::get('/leagues/{league}', 'LeagueController@details');
 
 # Seasons
-Route::get('/league/{league}/seasons', ['uses' => 'SeasonController@index', function ($league){
- return 'League '. $league;   
-    
-}]);
+Route::get('/leagues/{league}/seasons', 'SeasonController@index');
+Route::get('/leagues/{league}/seasons/{season}', 'SeasonController@details');
 Route::post('/season', 'SeasonController@store');
 Route::delete('/season/{season}', 'SeasonController@destroy');
 
