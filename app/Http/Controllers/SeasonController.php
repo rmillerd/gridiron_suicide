@@ -7,6 +7,7 @@ use App\Repositories\SeasonRepository;
 use App\League;
 use App\Season;
 
+
 class SeasonController extends Controller
 {
      /**
@@ -46,6 +47,11 @@ class SeasonController extends Controller
     }
 
     public function details(Request $request){
-        return Season::find($request->season);
+        $season = Season::find($request->season);
+        $weeks = Season::find($request->season)->weeks;
+        return view('seasons.details', [
+                'season' => Season::find($request->season),
+                'weeks' => Season::find($request->season)->weeks,
+                ]);
     }
 }

@@ -50,9 +50,9 @@ class LeagueController extends Controller
     
     public function details(Request $request){
         return view('leagues.details', [
-            'league' => League::byName($request->league),
-            'seasons' => League::byName($request->league)->seasons,
-            'teams' => League::byName($request->league)->teams,
+            'league' => League::byName($request->league_name),
+            'seasons' => League::byName($request->league_name)->seasons,
+            'teams' => League::byName($request->league_name)->teams,
         ]);
     }
 }

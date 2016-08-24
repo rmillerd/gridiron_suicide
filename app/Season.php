@@ -20,4 +20,9 @@ class Season extends Model
     {
         return $this->belongsTo(League::class);
     }
+    
+    public function weeks()
+    {
+        return $this->hasMany(Week::class);
+    }
 }

@@ -56,12 +56,18 @@
                         <tr>
                                 <!-- Season Name -->
                                 <td class="table-text">
-                                    <div>{{ $league->name }}</div>
+                                    <div><a href="{{ action('LeagueController@details', [
+                                                    'league_name' => $league->name,
+                                                ]) }}">
+                                        {{ $league->name }}</a></div>
                                 </td>
                                 <td>
-                                     &nbsp;<!-- TODO: Delete Button -->
-                                    <button type="button" class="btn btn-sm btn-info">Edit</button>
-                                    <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                                     <!-- TODO: Delete Button 
+                                     <a class="btn btn-sm btn-info" href="#">Edit</a>
+                                     &nbsp;
+                                     -->
+                                     <a type="submit" class="btn btn-sm btn-info" href="#">Edit</a>
+                                     <a type="submit" class="btn btn-sm btn-danger" href="#">Delete</a>
                                 </td>
                             </tr>
                         @endforeach

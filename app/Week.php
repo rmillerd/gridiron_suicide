@@ -20,4 +20,9 @@ class Week extends Model
     {
         return $this->belongsTo(Season::class);
     }
+    
+    public function matchups()
+    {
+        return $this->hasMany(Matchup::class);
+    }
 }

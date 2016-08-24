@@ -16,7 +16,7 @@ class Team extends Model
     /**
      * Get the League that owns the Team.
      */
-    public function user()
+    public function league()
     {
         return $this->belongsTo(League::class);
     }

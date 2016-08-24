@@ -3,7 +3,7 @@
 @section('content')
 <div class="panel-body">
     <div class="jumbotron">
-        <h1>{{ $league->name }}</h1>
+        <h1><a href="{{ url($league->URL) }}" target="_blank">{{ $league->name }}</a></h1>
     </div>
 @if (count($seasons) > 0)
     <div class="col-sm-6">
@@ -12,7 +12,7 @@
                 <h4 class="pull-left">Seasons</h4>
                 <div class="btn-group pull-right">
                     <a class="btn btn-default pull-right" href="#">
-                        <i class="fa fa-plus"></i> Add League
+                        <i class="fa fa-plus"></i> Add Season
                     </a>
                 </div>
                     
@@ -33,7 +33,11 @@
                         <tr>
                                 <!-- Season Name -->
                                 <td class="table-text">
-                                    <div>{{ $season->name }}</div>
+                                    <div><a href="{{ action('SeasonController@details', [
+                                                    'league_name' => $league->name,
+                                                    'season_id' => $season->id,
+                                                    ]) }}">{{ $season->name}}</a>
+                                    </div>
                                 </td>
                                 <td>
                                      &nbsp;<!-- TODO: Delete Button -->
@@ -76,7 +80,10 @@
                             <tr>
                                 <!-- Season Name -->
                                 <td class="table-text">
-                                    <div>{{ $team->name }}</div>
+                                    <div><a href="{{ action('TeamController@details', [
+                                                    'league_name' => $league->name,
+                                                    'team_id' => $team->id,
+                                                    ]) }}">{{ $team->name }}</div>
                                 </td>
 
                                 <td class="text-nowrap">
