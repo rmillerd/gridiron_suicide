@@ -37,7 +37,7 @@
                                                     'league_name' => 'NFL',
                                                     'season' => $season->id,
                                                     'week' => $week->id,
-                                                    ]) }}">{{ $week->name}}</a>
+                                                    ]) }}">{{ $week->name}} on {{ $week->startDate->format('m/d/y') }}</a>
                                     </div>
                                 </td>
                                 <td>

@@ -18,6 +18,7 @@ class GameSeeder extends Seeder
             'hometeam_id' => 10,
             'visitteam_id' => 5,
             'gameTime' => Carbon::create(2017,1,1,17,30,0,'PST'),
+            'modifiedBy' => 'Site Admin',
         ]);
     }
 }

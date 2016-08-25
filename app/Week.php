@@ -12,6 +12,7 @@ class Week extends Model
      * @var array
      */
     protected $fillable = ['name'];
+    protected $dates = ['startDate', 'endDate'];
 
     /**
      * Get the user that owns the task.
@@ -24,5 +25,10 @@ class Week extends Model
     public function games()
     {
         return $this->hasMany(Game::class);
+    }
+    
+    public function picks()
+    {
+        return $this->hasMany(Pick::class);
     }
 }

@@ -3,14 +3,13 @@
 @section('content')
 <div class="panel-body">
     <div class="jumbotron">
-        <h1>{{ $league->name }} - {{ $week->name }}</h1>
-        {{ $week->startDate->format('m/d/Y h:m')  }} to {{ $week->endDate->format('m/d/Y h:m') }}
+        <h1><a href="{{ url($team->teamURL) }}" target="_blank">{{ $team->name }}</a></h1>
     </div>
-@if (count($games) > 0)
+@if (count($homeGames) > 0)
     <div class="col-sm-6">
         <div class="panel panel-default">
             <div class="panel-heading clearfix">
-                <h4 class="pull-left">Games</h4>
+                <h4 class="pull-left">Home Games</h4>
                 <div class="btn-group pull-right">
                     <a class="btn btn-default pull-right" href="#">
                         <i class="fa fa-plus"></i> Add Game
@@ -30,26 +29,23 @@
                     -->
                     <!-- Table Body -->
                     <tbody>
-                        @foreach ($games as $game)
+                        @foreach ($homeGames as $game)
                         <tr>
                                 <!-- Season Name -->
                                 <td class="table-text">
                                     <div><a href="{{ action('GameController@details', [
                                                     'league_name' => $league->name,
-                                                    'season' => $week->season_id,
+                                                    'season' => $game->season_id,
                                                     'week' => $game->week_id,
                                                     'game' => $game->id,
-                                                    ]) }}">
-                                                    {{ $game->visitTeam->name }} 
-                                                    at {{ $game->homeTeam->name }}
-                                                    <br/>Game Time: {{ $game->gameTime->format('m/d/Y h:m')  }} </a>
+                                                    ]) }}">{{ $game->visitTeam->name}} vs {{ $game->homeTeam->name}}</a>
                                     </div>
-                                </td>
+                                </td><!--
                                 <td>
-                                     &nbsp;<!-- TODO: Delete Button -->
+                                     &nbsp; TODO: Delete Button 
                                     <button type="button" class="btn btn-sm btn-info">Edit</button>
                                     <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                                </td>
+                                </td>-->
                             </tr>
                         @endforeach
                     </tbody>
@@ -58,14 +54,14 @@
         </div>
     </div>
     @endif
-@if (count($picks) > 0)
+    @if (count($awayGames) > 0)
     <div class="col-sm-6">
         <div class="panel panel-default">
             <div class="panel-heading clearfix">
-                <h4 class="pull-left">Picks</h4>
+                <h4 class="pull-left">Away Games</h4>
                 <div class="btn-group pull-right">
                     <a class="btn btn-default pull-right" href="#">
-                        <i class="fa fa-plus"></i> Add Pick
+                        <i class="fa fa-plus"></i> Add Game
                     </a>
                 </div>
                     
@@ -74,31 +70,31 @@
             <div class="panel-body">
                 <table class="table table-striped task-table">
 
-                    <!-- Table Headings 
+                    <!-- Table Headings
                     <thead>
+                        <th>Teams</th>
                         <th>&nbsp;</th>
-                        <th>&nbsp;</th>
-                    </thead>
-                    -->
+                    </thead> -->
+
                     <!-- Table Body -->
                     <tbody>
-                        @foreach ($picks as $pick)
+                        @foreach ($awayGames as $game)
                         <tr>
                                 <!-- Season Name -->
                                 <td class="table-text">
-                                    <div><a href="{{ action('PickController@details', [
+                                    <div><a href="{{ action('GameController@details', [
                                                     'league_name' => $league->name,
-                                                    'season' => $week->season_id,
-                                                    'week' => $week->id,
-                                                    'pick' => $pick->id,
-                                                    ]) }}">{{ $pick->user->name }} picks {{ $pick->team->name }} </a>
+                                                    'season' => $game->season_id,
+                                                    'week' => $game->week,
+                                                    'game' => $game->id,
+                                                    ]) }}">{{ $game->visitTeam->name}} vs {{ $game->homeTeam->name}}</a>
                                     </div>
-                                </td>
+                                </td><!--
                                 <td>
-                                     &nbsp;<!-- TODO: Delete Button 
+                                     &nbsp; TODO: Delete Button 
                                     <button type="button" class="btn btn-sm btn-info">Edit</button>
-                                    <button type="button" class="btn btn-sm btn-danger">Delete</button>-->
-                                </td>
+                                    <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                                </td>-->
                             </tr>
                         @endforeach
                     </tbody>

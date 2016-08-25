@@ -9,6 +9,7 @@ use App\Repositories\TeamRepository;
 use App\Team;
 
 
+
 class TeamController extends Controller
 {
     protected $teams;
@@ -23,6 +24,12 @@ class TeamController extends Controller
     }
     
     public function details(Request $request){
-        return Team::find($request->team);
+        return view('teams.details', [
+                'league' => Team::find($request->team)->league,
+                'team' => Team::find($request->team),
+                'homeGames' => Team::find($request->team)->homeGames,
+                'awayGames' => Team::find($request->team)->awayGames,
+                
+                ]);
     }
 }

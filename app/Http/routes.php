@@ -46,10 +46,13 @@ Route::delete('/leagues/{league_name}/seasons/{season}/weeks/{week}', 'WeekContr
 
 # Games
 Route::get('/leagues/{league_name}/seasons/{season}/weeks/{week}/games', 'GameController@index');
-Route::get('/leagues/{league_name}/seasons/{season}/weeks/{week}/games/{matchup}', 'GameController@details');
+Route::get('/leagues/{league_name}/seasons/{season}/weeks/{week}/games/{game}', 'GameController@details');
 Route::post('/leagues/{league_name}/seasons/{season}/weeks/{week}/games/new', 'GameController@store');
 Route::patch('/leagues/{league_name}/seasons/{season}/weeks/{week}', 'GameController@patch');
 Route::delete('/leagues/{league_name}/seasons/{season}/weeks/{week}', 'GameController@destroy');
+
+# Picks
+Route::get('/leagues/{league_name}/seasons/{season}/weeks/{week}/picks/{pick}','PickController@details');
 /*
 
 Route::get('/users', 'AuthController@index');

@@ -12,6 +12,7 @@ class Game extends Model
      * @var array
      */
     //protected $fillable = ['name'];
+    protected $dates = ['gameTime'];
 
     /**
      * Get the Season that owns the Matchup.
@@ -26,5 +27,15 @@ class Game extends Model
     public function week()
     {
         return $this->belongsTo(Week::class);
+    }
+       
+    public function homeTeam()
+    {
+        return $this->hasOne(Team::class, 'id', 'hometeam_id');
+    }
+ 
+    public function visitTeam()
+    {
+        return $this->hasOne(Team::class, 'id', 'visitteam_id');
     }
 }

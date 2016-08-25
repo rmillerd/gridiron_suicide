@@ -19,6 +19,7 @@ class WeekController extends Controller
                 'league' => Week::find($request->week)->season->league,
                 'season' => Week::find($request->week)->season,
                 'games' => Week::find($request->week)->games,
+                'picks' => Week::find($request->week)->picks,
                 ]);
         
     }
