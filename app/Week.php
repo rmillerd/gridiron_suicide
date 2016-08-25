@@ -21,8 +21,8 @@ class Week extends Model
         return $this->belongsTo(Season::class);
     }
     
-    public function matchups()
+    public function games()
     {
-        return $this->hasMany(Matchup::class);
+        return $this->hasMany(Game::class);
     }
 }

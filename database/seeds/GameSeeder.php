@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
-class MatchupSeeder extends Seeder
+class GameSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class MatchupSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('matchups')->insert([
+        DB::table('games')->insert([
             'season_id' => '1',
             'week_id' => 1,
             'hometeam_id' => 10,

@@ -5,7 +5,7 @@
     <div class="jumbotron">
         <h1>{{ $league->name }} - {{ $week->name }}</h1>
     </div>
-@if (count($matchups) > 0)
+@if (count($games) > 0)
     <div class="col-sm-6">
         <div class="panel panel-default">
             <div class="panel-heading clearfix">
@@ -29,15 +29,15 @@
                     -->
                     <!-- Table Body -->
                     <tbody>
-                        @foreach ($matchups as $matchup)
+                        @foreach ($games as $game)
                         <tr>
                                 <!-- Season Name -->
                                 <td class="table-text">
-                                    <div><a href="{{ action('MatchupController@details', [
+                                    <div><a href="{{ action('GameController@details', [
                                                     'league_name' => 'NFL',
                                                     'season' => $week->season_id,
-                                                    'week' => $matchup->week_id,
-                                                    'matchup' => $matchup->id,
+                                                    'week' => $game->week_id,
+                                                    'matchup' => $game->id,
                                                     ]) }}">Visitor at Home</a>
                                     </div>
                                 </td>

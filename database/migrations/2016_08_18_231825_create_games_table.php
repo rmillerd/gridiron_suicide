@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMatchupsTable extends Migration
+class CreateGamesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateMatchupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('matchups', function(Blueprint $table){
+        Schema::create('games', function(Blueprint $table){
            $table->increments('id');
            $table->integer('season_id')->unsigned();
            $table->foreign('season_id')->references('id')->on('seasons');
@@ -35,6 +35,6 @@ class CreateMatchupsTable extends Migration
      */
     public function down()
     {
-       Schema::drop('matchups');
+       Schema::drop('games');
     }
 }

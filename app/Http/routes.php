@@ -44,12 +44,12 @@ Route::post('/leagues/{league_name}/seasons/{season}/weeks/{week}/new', 'WeekCon
 Route::patch('/leagues/{league_name}/seasons/{season}/weeks/{week}', 'WeekController@patch');
 Route::delete('/leagues/{league_name}/seasons/{season}/weeks/{week}', 'WeekController@destroy');
 
-# Matchups
-Route::get('/leagues/{league_name}/seasons/{season}/weeks/{week}/matchups', 'MatchupController@index');
-Route::get('/leagues/{league_name}/seasons/{season}/weeks/{week}/matchups/{matchup}', 'MatchupController@details');
-Route::post('/leagues/{league_name}/seasons/{season}/weeks/{week}/matchups/new', 'MatchupController@store');
-Route::patch('/leagues/{league_name}/seasons/{season}/weeks/{week}', 'MatchupController@patch');
-Route::delete('/leagues/{league_name}/seasons/{season}/weeks/{week}', 'MatchupController@destroy');
+# Games
+Route::get('/leagues/{league_name}/seasons/{season}/weeks/{week}/games', 'GameController@index');
+Route::get('/leagues/{league_name}/seasons/{season}/weeks/{week}/games/{matchup}', 'GameController@details');
+Route::post('/leagues/{league_name}/seasons/{season}/weeks/{week}/games/new', 'GameController@store');
+Route::patch('/leagues/{league_name}/seasons/{season}/weeks/{week}', 'GameController@patch');
+Route::delete('/leagues/{league_name}/seasons/{season}/weeks/{week}', 'GameController@destroy');
 /*
 
 Route::get('/users', 'AuthController@index');
