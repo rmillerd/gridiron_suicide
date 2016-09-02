@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
-
+use App\Team;
+use App\Game;
 class GameSeeder extends Seeder
 {
     /**

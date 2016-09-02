@@ -15,6 +15,7 @@ class CreateSeasonsTable extends Migration
         Schema::create('seasons', function(Blueprint $table){
            $table->increments('id');
            $table->string('name');
+           $table->index('name');
            $table->boolean('open');
            $table->integer('league_id')->unsigned();
            $table->foreign('league_id')->references('id')->on('leagues');

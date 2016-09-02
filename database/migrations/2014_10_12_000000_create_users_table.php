@@ -17,9 +17,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->boolean('SiteAdmin');
-            $table->integer('idSiteTheme')->unsigned();
-            $table->foreign('idSiteTheme')->references('id')->on('themes');
+            $table->integer('theme_id')->unsigned()->default(1);
+            $table->foreign('theme_id')->references('id')->on('themes');
+
             $table->rememberToken();
             $table->timestamps();
         });
