@@ -4,7 +4,7 @@
 <div class="panel-body">
     <div class="jumbotron">
         <h1>{{ $league->name }} - {{ $week->name }}</h1>
-        {{ $week->startDate->format('m/d/Y h:m')  }} to {{ $week->endDate->format('m/d/Y h:m') }}
+        {{ $week->startDate->format('M d, Y')  }} through {{ $week->endDate->format('M d, Y') }}
     </div>
 @if (count($games) > 0)
     <div class="col-sm-6">
@@ -42,7 +42,7 @@
                                                     ]) }}">
                                                     {{ $game->visitTeam->name }} 
                                                     at {{ $game->homeTeam->name }}
-                                                    <br/>Game Time: {{ $game->gameTime->format('m/d/Y h:m')  }} </a>
+                                                    <br/>Game Time: {{ $game->gameTime->format('h:i \o\n M d')  }} </a>
                                     </div>
                                 </td>
                                 <td>

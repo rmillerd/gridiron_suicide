@@ -19,7 +19,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('theme_id')->unsigned()->default(1);
             $table->foreign('theme_id')->references('id')->on('themes');
-
             $table->rememberToken();
             $table->timestamps();
         });

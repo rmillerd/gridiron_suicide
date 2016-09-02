@@ -13,12 +13,13 @@ class GameSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('games')->insert([
+        Game::create([
             'season_id' => '1',
             'week_id' => 1,
             'hometeam_id' => 10,
             'visitteam_id' => 5,
-            'gameTime' => Carbon::create(2017,1,1,17,30,0,'PST'),
+            'bye' => false,
+            'gameTime' => Carbon::parse('Thu Sep 8, 2016 8:30 PM'),
             'modifiedBy' => 'Site Admin',
         ]);
     }

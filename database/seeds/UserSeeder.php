@@ -16,16 +16,13 @@ class UserSeeder extends Seeder
            'name' => 'Site Admin',
            'email' => 'admin@example.com',
            'password' => bcrypt('password'),
-           'SiteAdmin' => 1
-            
+           
         ]);
         
         DB::table('users')->insert([
            'name' => 'Site User',
            'email' => 'user@example.com',
            'password' => bcrypt('password'),
-           'SiteAdmin' => 0
-            
         ]);
     }
 }

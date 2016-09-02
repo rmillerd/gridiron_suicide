@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -61,3 +60,8 @@ Route::get('/seasons/user/pick', 'HomeController@index');
 Route::get('/phpinfo', function(){
     return phpinfo();
 });
+
+Route::get('/import', function(){
+   return view('import.upload');
+});
+Route::post('/import', 'UploadController@process');
