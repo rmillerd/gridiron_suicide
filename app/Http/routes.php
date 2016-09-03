@@ -61,7 +61,5 @@ Route::get('/phpinfo', function(){
     return phpinfo();
 });
 
-Route::get('/import', function(){
-   return view('import.upload');
-});
+Route::get('/import', 'UploadController@setup');
 Route::post('/import', 'UploadController@process');
