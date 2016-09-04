@@ -7,11 +7,22 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Import</div>
                 <div class="panel-body">
-                    @if ($errors->has('file'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('file') }}</strong>
-                        </span>
+                    
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                     @endif
+<!--                    @if ($errors->has('file'))
+                        <div class="alert alert-danger"><span class="help-block">
+                            <strong>{{ $errors->first('file') }}</strong>
+                            </span></div>
+                    @endif
+-->
                 {!! Form::open(array('action' => 'UploadController@process', 'files' => true, 'class'=> 'form-horizontal')) !!}
                     <div class="form-group">
                          {{ Form::label('league', 'League', ['class' => 'col-md-4 control-label']) }}

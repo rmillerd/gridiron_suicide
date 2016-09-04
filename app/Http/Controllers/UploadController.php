@@ -9,6 +9,10 @@ use App\League;
 
 class UploadController extends Controller
 {
+    
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function setup(){
         return view('import.upload', [
             "leagues" => League::lists('name','id'),
@@ -18,8 +22,8 @@ class UploadController extends Controller
     public function process(Request $request){
         
         $this->validate($request, [
-            'file' => 'required|mimes:application/vnd.ms-excel',
+            'file' => 'mimes:csv,txt,xls,xlsx',
             ]);
-        return $request->file->getClientMimeType();
+        return dump($request->file);
     }
 }
