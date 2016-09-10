@@ -9,6 +9,9 @@ use App\Week;
 
 class WeekController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function index(Request $request){
         
     }
