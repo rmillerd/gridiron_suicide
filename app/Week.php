@@ -11,7 +11,7 @@ class Week extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['name','startDate','endDate'];
     protected $dates = ['startDate', 'endDate'];
 
     /**

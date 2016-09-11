@@ -11,7 +11,7 @@ class Game extends Model
      *
      * @var array
      */
-    //protected $fillable = ['name'];
+    protected $fillable = ['season_id','week_id', 'gameTime','hometeam_id','visitteam_id', 'bye', 'modifiedBy'];
     protected $dates = ['gameTime'];
 
     /**

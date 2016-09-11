@@ -30,4 +30,8 @@ class Team extends Model
     {
         return $this->hasMany(Game::class, 'visitTeam_id', 'id');
     }
+    public static function byName($name)
+    {
+        return Team::where('name', $name)->first();
+    }
 }

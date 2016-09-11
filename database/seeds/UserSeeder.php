@@ -14,6 +14,7 @@ class UserSeeder extends Seeder
         //TOOD: set email to str_random(10).'@example.com'
         DB::table('users')->insert([
            'name' => 'Site Admin',
+           'displayName' => 'Admin',
            'email' => 'admin@example.com',
            'password' => bcrypt('password'),
            
@@ -21,6 +22,7 @@ class UserSeeder extends Seeder
         
         DB::table('users')->insert([
            'name' => 'Site User',
+           'displayName' => 'User',
            'email' => 'user@example.com',
            'password' => bcrypt('password'),
         ]);

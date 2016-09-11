@@ -20,7 +20,7 @@ class CreateGamesTable extends Migration
            $table->foreign('week_id')->references('id')->on('weeks')->onDelete('cascade');
            $table->integer('hometeam_id')->unsigned();
            $table->foreign('hometeam_id')->references('id')->on('teams')->onDelete('cascade');
-           $table->integer('visitteam_id')->unsigned();
+           $table->integer('visitteam_id')->unsigned()->nullable();
            $table->foreign('visitteam_id')->references('id')->on('teams')->onDelete('cascade');
            $table->datetime('gameTime');
            $table->boolean('bye');

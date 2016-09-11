@@ -79,7 +79,7 @@ class TeamSeeder extends Seeder
         ]);
         DB::table('teams')->insert([
             'league_id' => 1,
-            'name' => 'GreenBay Packers',
+            'name' => 'Green Bay Packers',
             'iconURL' => 'GreenBayPackers.jpg',
             'teamURL' => '',
         ]);
@@ -175,7 +175,7 @@ class TeamSeeder extends Seeder
         ]);
         DB::table('teams')->insert([
             'league_id' => 1,
-            'name' => 'SanFrancisco49ers',
+            'name' => 'San Francisco 49ers',
             'iconURL' => 'SanFrancisco49ers.jpg',
             'teamURL' => '',
         ]);

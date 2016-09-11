@@ -32,25 +32,37 @@
                     <tbody>
                         @foreach ($games as $game)
                         <tr>
-                                <!-- Season Name -->
-                                <td class="table-text">
-                                    <div><a href="{{ action('GameController@details', [
-                                                    'league_name' => $league->name,
-                                                    'season' => $week->season_id,
-                                                    'week' => $game->week_id,
-                                                    'game' => $game->id,
-                                                    ]) }}">
-                                                    {{ $game->visitTeam->name }} 
-                                                    at {{ $game->homeTeam->name }}
-                                                    <br/>Game Time: {{ $game->gameTime->format('h:i \o\n M d')  }} </a>
-                                    </div>
-                                </td>
-                                <td>
-                                     &nbsp;<!-- TODO: Delete Button -->
-                                    <button type="button" class="btn btn-sm btn-info">Edit</button>
-                                    <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                                </td>
-                            </tr>
+                            @if(!$game->bye)
+                            <td class="table-text">
+                                <div><a href="{{ action('GameController@details', [
+                                                'league_name' => $league->name,
+                                                'season' => $week->season_id,
+                                                'week' => $game->week_id,
+                                                'game' => $game->id,
+                                                ]) }}">
+                                                {{ $game->visitTeam->name }} 
+                                                at {{ $game->homeTeam->name }}
+                                                <br/>Game Time: {{ $game->gameTime->format('h:i \o\n M d')  }} </a>
+                                </div>
+                            </td>
+                            @else
+                            <td class="table-text">
+                                <div><a href="{{ action('GameController@details', [
+                                                'league_name' => $league->name,
+                                                'season' => $week->season_id,
+                                                'week' => $game->week_id,
+                                                'game' => $game->id,
+                                                ]) }}">
+                                                {{ $game->homeTeam->name }} have a Bye
+                                </div>
+                            </td>
+                            @endif
+                            <td>
+                                 &nbsp;<!-- TODO: Delete Button -->
+                                <button type="button" class="btn btn-sm btn-info">Edit</button>
+                                <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                            </td>
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -58,18 +70,22 @@
         </div>
     </div>
     @endif
-@if (count($picks) > 0)
     <div class="col-sm-6">
         <div class="panel panel-default">
             <div class="panel-heading clearfix">
                 <h4 class="pull-left">Picks</h4>
                 <div class="btn-group pull-right">
-                    <a class="btn btn-default pull-right" href="#">
+                    <a class="btn btn-default pull-right" href="{{ action('PickController@create', [
+                                                                   'league_name' => $league->name,
+                                                                   'season' => $week->season_id,
+                                                                   'week' => $week->id,
+                                                                ]) }}">
                         <i class="fa fa-plus"></i> Add Pick
                     </a>
                 </div>
                     
             </div>
+@if (count($picks) > 0)
 
             <div class="panel-body">
                 <table class="table table-striped task-table">
@@ -104,8 +120,9 @@
                     </tbody>
                 </table>
             </div>
+            @endif
         </div>
     </div>
-    @endif
+    
 </div>
 @endsection

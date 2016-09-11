@@ -51,7 +51,9 @@ Route::patch('/leagues/{league_name}/seasons/{season}/weeks/{week}', 'GameContro
 Route::delete('/leagues/{league_name}/seasons/{season}/weeks/{week}', 'GameController@destroy');
 
 # Picks
-Route::get('/leagues/{league_name}/seasons/{season}/weeks/{week}/picks/{pick}','PickController@details');
+Route::get('/leagues/{league_name}/seasons/{season}/weeks/{week}/picks/','PickController@details');
+Route::get('/leagues/{league_name}/seasons/{season}/weeks/{week}/picks/create', 'PickController@create');
+Route::post('/picks/store','PickController@store');
 /*
 
 Route::get('/users', 'AuthController@index');
